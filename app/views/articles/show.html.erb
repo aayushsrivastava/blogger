@@ -12,6 +12,10 @@
 	data: {confirm: "Really delete the article?"}  %>
 <%= link_to "edit", edit_article_path(@article) %>
 
+<% if @article.image.exists? %>
+	<p><%= image_tag @article.image.url %></p>
+<% end %>
+
 <p><%= @article.body %></p>
 
 <%= render partial: 'comments/form' %>
